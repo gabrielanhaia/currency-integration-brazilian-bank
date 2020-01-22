@@ -14,6 +14,13 @@ use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
  */
 class FormatterSimpleFactory
 {
+    /**
+     * Method responsible for creating
+     *
+     * @param FormatterTypeEnum $formatterTypeEnum
+     * @return TransactionFormatter
+     * @throws \Exception
+     */
     public function make(FormatterTypeEnum $formatterTypeEnum)
     {
         switch ($formatterTypeEnum->value()) {

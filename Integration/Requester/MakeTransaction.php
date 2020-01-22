@@ -3,6 +3,8 @@
 
 namespace CurrencyFair\IntegrationBrazillianBank\Integration\Requester;
 
+use CurrencyFair\IntegrationBrazillianBank\Integration\TransferEntity;
+
 /**
  * Class MakeTransaction responsible for make transaction at the Brazilian bank.
  * @package CurrencyFair\IntegrationBrazillianBank\Integration\Requester
@@ -13,8 +15,10 @@ class MakeTransaction extends AbstractRequester
 {
     /**
      * Method responsible for making a transaction.
+     *
+     * @param TransferEntity $transferEntity
      */
-    public function makeTransaction()
+    public function makeTransaction(TransferEntity $transferEntity)
     {
         
     }

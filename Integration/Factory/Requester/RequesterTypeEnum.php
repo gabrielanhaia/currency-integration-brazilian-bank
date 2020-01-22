@@ -10,6 +10,7 @@ use Eloquent\Enumeration\AbstractEnumeration;
  * @package CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Requester
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
+ * @method static REQUESTER_MAKE_TRANSACTION()
  */
 class RequesterTypeEnum extends AbstractEnumeration
 {

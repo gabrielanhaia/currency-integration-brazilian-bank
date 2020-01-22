@@ -12,6 +12,13 @@ use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
  */
 class ParserSimpleFactory
 {
+    /**
+     * Method responsible for creating and instance new parsers.
+     *
+     * @param ParserTypeEnum $parserTypeEnum
+     * @return TransactionParser
+     * @throws \Exception
+     */
     public function make(ParserTypeEnum $parserTypeEnum)
     {
         switch ($parserTypeEnum->value()) {

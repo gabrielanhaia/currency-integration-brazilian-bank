@@ -10,6 +10,7 @@ use Eloquent\Enumeration\AbstractEnumeration;
  * @package CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Parser
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
+ * @method static PARSER_TRANSACTION()
  */
 class ParserTypeEnum extends AbstractEnumeration
 {

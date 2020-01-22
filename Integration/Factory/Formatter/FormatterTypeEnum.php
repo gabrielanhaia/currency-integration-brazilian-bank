@@ -10,6 +10,7 @@ use Eloquent\Enumeration\AbstractEnumeration;
  * @package CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Formatter
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
+ * @method static FORMATTER_TRANSACTION()
  */
 class FormatterTypeEnum extends AbstractEnumeration
 {
