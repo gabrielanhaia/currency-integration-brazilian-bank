@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CurrencyFair\IntegrationBrazillianBank\Integration;
+namespace CurrencyFair\IntegrationBrazillianBank\Integration\Entity;
 
 /**
  * Class AccountEntity

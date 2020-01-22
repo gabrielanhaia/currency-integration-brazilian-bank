@@ -1,5 +1,6 @@
 {
     "name": "currency-fair/integration-brazillian-bank",
+    "license": "MIT",
     "description": "The integration example with a Brazilian bank.",
     "authors": [
         {
@@ -16,5 +17,10 @@
         "wanfeiyy/dd": "^1.0",
         "phpunit/phpunit": "^8.5",
         "mockery/mockery": "^1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "CurrencyFair\\IntegrationBrazillianBank\\Integration\\": "integration/"
+        }
     }
 }

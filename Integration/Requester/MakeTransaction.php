@@ -16,10 +16,18 @@ class MakeTransaction extends AbstractRequester
     /**
      * Method responsible for making a transaction.
      *
-     * @param TransferEntity $transferEntity
+     * @param array $transferData Data to be sent to the API.
+     * @return array
+     * @throws \Exception
      */
-    public function makeTransaction(TransferEntity $transferEntity)
+    public function makeTransaction(array $transferData)
     {
-        
+        // TODO: Here it's made a request to an API
+        //$this->guzzleClient->request(....)
+
+        return [
+            'numero_confirmacao' => rand(23231, 323123232),
+            'data_processamento' => (new \DateTime)->format('Y-m-d')
+        ];
     }
 }

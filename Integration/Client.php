@@ -3,12 +3,13 @@
 
 namespace CurrencyFair\IntegrationBrazillianBank\Integration;
 
-use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Formatter\FormatterTypeEnum;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Parser\FormatterSimpleFactory;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Parser\ParserSimpleFactory;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Parser\ParserTypeEnum;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Requester\RequesterSimpleFactory;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Requester\RequesterTypeEnum;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\TransferEntity;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\{Formatter\FormatterTypeEnum,
+    Formatter\FormatterSimpleFactory,
+    Parser\ParserSimpleFactory,
+    Parser\ParserTypeEnum,
+    Requester\RequesterSimpleFactory,
+    Requester\RequesterTypeEnum};
 
 /**
  * Class Client (This class is following the Facade pattern).
@@ -47,21 +48,24 @@ class Client
     /**
      * Method responsible for make a transaction.
      *
+     * (There is no return of this function because the object is changed by reference).
+     *
      * @param TransferEntity $transferEntity Entity with the transfer data.
-     * @return mixed
+     * @return void
      * @throws \Exception
      */
-    public function makeTransaction(TransferEntity $transferEntity)
+    public function makeTransaction(TransferEntity $transferEntity): void
     {
         $formatter = $this->formatterFactory->make(FormatterTypeEnum::FORMATTER_TRANSACTION());
         $parser = $this->parserFactory->make(ParserTypeEnum::PARSER_TRANSACTION());
         $requester = $this->requesterFactory->make(RequesterTypeEnum::REQUESTER_MAKE_TRANSACTION());
 
         $formattedData = $formatter->format($transferEntity);
-        $rawResponse = $requester->makeTransaction($formattedData);
-        $response = $parser->parse($rawResponse);
 
-        return $response;
+        $rawResponse = $requester->makeTransaction($formattedData);
+        $responseReceipt = $parser->parse($rawResponse);
+
+        $transferEntity->setReceipt($responseReceipt);
     }
 
     /**

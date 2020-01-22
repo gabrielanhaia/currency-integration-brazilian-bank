@@ -1,10 +1,8 @@
 <?php
 
-namespace CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Parser;
+namespace CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Formatter;
 
-use CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Formatter\FormatterTypeEnum;
 use CurrencyFair\IntegrationBrazillianBank\Integration\Formatter\TransactionFormatter;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
 
 /**
  * Class FormatterFactory

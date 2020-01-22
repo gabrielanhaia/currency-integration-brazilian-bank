@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CurrencyFair\IntegrationBrazillianBank\Integration;
+namespace CurrencyFair\IntegrationBrazillianBank\Integration\Entity;
 
 /**
  * Class TransferEntity
@@ -20,8 +20,8 @@ class TransferEntity
     /** @var float $total Total of money to be transferred. */
     protected $total;
 
-    /** @var int $confirmationNumber Number of the confirmation after the money be accepted. */
-    protected $confirmationNumber;
+    /** @var ReceiptTransferEntity $receipt Date of the confirmation after the money be accepted. */
+    protected $receipt;
 
     /**
      * @return AccountEntity
@@ -78,20 +78,20 @@ class TransferEntity
     }
 
     /**
-     * @return int
+     * @return ReceiptTransferEntity
      */
-    public function getConfirmationNumber(): int
+    public function getReceipt(): ReceiptTransferEntity
     {
-        return $this->confirmationNumber;
+        return $this->receipt;
     }
 
     /**
-     * @param int $confirmationNumber
+     * @param ReceiptTransferEntity $receipt
      * @return TransferEntity
      */
-    public function setConfirmationNumber(int $confirmationNumber): TransferEntity
+    public function setReceipt(ReceiptTransferEntity $receipt): TransferEntity
     {
-        $this->confirmationNumber = $confirmationNumber;
+        $this->receipt = $receipt;
         return $this;
     }
 }
