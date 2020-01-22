@@ -1,0 +1,13 @@
+{
+    "name": "currency-fair/integration-brazillian-bank",
+    "description": "The integration example with a Brazilian bank.",
+    "authors": [
+        {
+            "name": "Gabriel Anhaia",
+            "email": "anhaia.gabriel@gmail.com"
+        }
+    ],
+    "require": {
+        "eloquent/enumeration": "^6.0"
+    }
+}
