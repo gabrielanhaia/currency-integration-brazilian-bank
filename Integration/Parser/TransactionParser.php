@@ -5,6 +5,7 @@ namespace CurrencyFair\IntegrationBrazillianBank\Integration\Parser;
 
 
 use CurrencyFair\IntegrationBrazillianBank\Integration\Contract\IParser;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\ReceiptTransferEntity;
 
 /**
  * Class TransactionParser
@@ -22,6 +23,10 @@ class TransactionParser implements IParser
      */
     public function parse($rawData)
     {
-        // TODO: Implement parse() method.
+        $receiptTransfer = new ReceiptTransferEntity;
+        $receiptTransfer->setConfirmationNumber($rawData['numero_confirmacao'])
+            ->setDateConfirmation(\DateTime::createFromFormat('Y-m-d', $rawData['data_processamento']));
+
+        return $receiptTransfer;
     }
 }
