@@ -12,11 +12,11 @@ use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class FormatterFactory
+class FormatterSimpleFactory
 {
-    public function make(FormatterTypeEnum $parserTypeEnum)
+    public function make(FormatterTypeEnum $formatterTypeEnum)
     {
-        switch ($parserTypeEnum->value()) {
+        switch ($formatterTypeEnum->value()) {
             case FormatterTypeEnum::FORMATTER_TRANSACTION:
                 return new TransactionFormatter;
                 break;

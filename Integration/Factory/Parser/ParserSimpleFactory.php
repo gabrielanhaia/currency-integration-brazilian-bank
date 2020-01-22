@@ -10,9 +10,9 @@ use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class ParserFactory
+class ParserSimpleFactory
 {
-    public function make(FormatterTypeEnum $parserTypeEnum)
+    public function make(ParserTypeEnum $parserTypeEnum)
     {
         switch ($parserTypeEnum->value()) {
             case ParserTypeEnum::PARSER_TRANSACTION:
