@@ -1,11 +1,11 @@
 <?php
 
 
-namespace CurrencyFair\IntegrationBrazillianBank\GeneralContract;
+namespace CurrencyFair\IntegrationBrazillianBank\Integration\Contract;
 
 /**
  * Interface IFormattter
- * @package CurrencyFair\IntegrationBrazillianBank\GeneralContract
+ * @package CurrencyFair\IntegrationBrazillianBank\Integration\Contract
  *
  * Default contract for all parsers.
  */
