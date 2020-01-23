@@ -33,6 +33,11 @@ class MakeTransaction extends AbstractRequester
             'form_params' => $transferData
         ]);
 
+        // TODO: Create enum for the HTTP status codes.
+        if ($response->getStatusCode() !== 202) {
+            throw new \Exception('Error making transaction (Brazilian bank).');
+        }
+
         return $response->getBody()
             ->getContents();
     }
