@@ -16,6 +16,9 @@ abstract class AbstractRequester
     /** @var GuzzleClient $guzzleClient */
     protected $guzzleClient;
 
+    /** @var string $baseUrlApi Url default API. */
+    protected $baseUrlApi;
+
     /**
      * ListArticlesByTag constructor.
      * @param GuzzleClient $guzzleClient
@@ -23,5 +26,6 @@ abstract class AbstractRequester
     public function __construct(GuzzleClient $guzzleClient)
     {
         $this->guzzleClient = $guzzleClient;
+        $this->baseUrlApi = getenv('API_BRAZILIAN_BANK_BASE_URL');
     }
 }

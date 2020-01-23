@@ -4,6 +4,7 @@
 namespace CurrencyFair\IntegrationBrazillianBank\Integration\Requester;
 
 use CurrencyFair\IntegrationBrazillianBank\Integration\TransferEntity;
+use Exception;
 
 /**
  * Class MakeTransaction responsible for make transaction at the Brazilian bank.
@@ -17,17 +18,22 @@ class MakeTransaction extends AbstractRequester
      * Method responsible for making a transaction.
      *
      * @param array $transferData Data to be sent to the API.
-     * @return array
-     * @throws \Exception
+     * @return string
+     * @throws Exception
      */
-    public function makeTransaction(array $transferData)
+    public function makeTransaction(array $transferData): string
     {
-        // TODO: Here it's made a request to an API
-        //$this->guzzleClient->request(....)
+        if (empty($this->baseUrlApi)) {
+            throw new \Exception('Base url api must be on the .ENV (API_BRAZILIAN_BANK_BASE_URL)');
+        }
 
-        return [
-            'numero_confirmacao' => rand(23231, 323123232),
-            'data_processamento' => (new \DateTime)->format('Y-m-d')
-        ];
+        $urlApi = "{$this->baseUrlApi}/brazilian-bank/make-transfer";
+
+        $response = $this->guzzleClient->post($urlApi, [
+            'form_params' => $transferData
+        ]);
+
+        return $response->getBody()
+            ->getContents();
     }
 }

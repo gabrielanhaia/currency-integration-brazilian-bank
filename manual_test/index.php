@@ -4,7 +4,7 @@ require_once('../vendor/autoload.php');
 
 use CurrencyFair\IntegrationBrazillianBank\Integration\{Entity\AccountEntity, Client, Entity\TransferEntity};
 
-putenv('API_BRAZILIAN_BANK_BASE_URL=https://eng0y6111i6va.x.pipedream.net/');
+putenv('API_BRAZILIAN_BANK_BASE_URL=http://localhost:8001/api');
 
 $client = new Client;
 

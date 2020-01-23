@@ -23,9 +23,11 @@ class TransactionParser implements IParser
      */
     public function parse($rawData)
     {
+        $arrayRawData = json_decode($rawData, true);
+
         $receiptTransfer = new ReceiptTransferEntity;
-        $receiptTransfer->setConfirmationNumber($rawData['numero_confirmacao'])
-            ->setDateConfirmation(\DateTime::createFromFormat('Y-m-d', $rawData['data_processamento']));
+        $receiptTransfer->setConfirmationNumber($arrayRawData['numero_confirmacao'])
+            ->setDateConfirmation(\DateTime::createFromFormat('Y-m-d', $arrayRawData['data_processamento']));
 
         return $receiptTransfer;
     }
