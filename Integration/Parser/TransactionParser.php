@@ -20,13 +20,22 @@ class TransactionParser implements IParser
      *
      * @param mixed $rawData
      * @return mixed
+     * @throws \Exception
      */
     public function parse($rawData)
     {
         $arrayRawData = json_decode($rawData, true);
 
+        // I put these rules for different unit tests (scenarios).
+        if (empty($arrayRawData['numero_confirmacao'])) {
+            throw new \Exception('Confirmation number invalid.');
+        }
+
+        $confirmationNumber = 'CN:' . $arrayRawData['numero_confirmacao'];
+        // ----------------
+
         $receiptTransfer = new ReceiptTransferEntity;
-        $receiptTransfer->setConfirmationNumber($arrayRawData['numero_confirmacao'])
+        $receiptTransfer->setConfirmationNumber($confirmationNumber)
             ->setDateConfirmation(\DateTime::createFromFormat('Y-m-d', $arrayRawData['data_processamento']));
 
         return $receiptTransfer;
