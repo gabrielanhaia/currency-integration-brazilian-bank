@@ -2,7 +2,7 @@
 
 namespace CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Formatter;
 
-use CurrencyFair\IntegrationBrazillianBank\Integration\Formatter\TransactionFormatter;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Formatter\TransferFormatter;
 
 /**
  * Class FormatterFactory
@@ -16,14 +16,14 @@ class FormatterSimpleFactory
      * Method responsible for creating
      *
      * @param FormatterTypeEnum $formatterTypeEnum
-     * @return TransactionFormatter
+     * @return TransferFormatter
      * @throws \Exception
      */
     public function make(FormatterTypeEnum $formatterTypeEnum)
     {
         switch ($formatterTypeEnum->value()) {
             case FormatterTypeEnum::FORMATTER_TRANSACTION:
-                return new TransactionFormatter;
+                return new TransferFormatter;
                 break;
             default:
                 throw new \Exception('Type of formatter not implemented.');

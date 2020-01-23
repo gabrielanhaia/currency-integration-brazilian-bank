@@ -2,7 +2,7 @@
 
 namespace CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Parser;
 
-use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransferParser;
 
 /**
  * Class ParserFactory
@@ -16,14 +16,14 @@ class ParserSimpleFactory
      * Method responsible for creating and instance new parsers.
      *
      * @param ParserTypeEnum $parserTypeEnum
-     * @return TransactionParser
+     * @return TransferParser
      * @throws \Exception
      */
     public function make(ParserTypeEnum $parserTypeEnum)
     {
         switch ($parserTypeEnum->value()) {
             case ParserTypeEnum::PARSER_TRANSACTION:
-                return new TransactionParser;
+                return new TransferParser;
                 break;
             default:
                 throw new \Exception('Type of parser not implemented.');

@@ -14,6 +14,6 @@ use Eloquent\Enumeration\AbstractEnumeration;
  */
 class FormatterTypeEnum extends AbstractEnumeration
 {
-    /** @var string FORMATTER_TRANSACTION Type of formatter for transactions response from the API. */
+    /** @var string FORMATTER_TRANSACTION Type of formatter for transfers response from the API. */
     const FORMATTER_TRANSACTION = 'FORMATTER_TRANSACTION';
 }

@@ -46,7 +46,7 @@ class Client
     }
 
     /**
-     * Method responsible for make a transaction.
+     * Method responsible for make a transfer.
      *
      * (There is no return of this function because the object is changed by reference).
      *
@@ -54,7 +54,7 @@ class Client
      * @return void
      * @throws \Exception
      */
-    public function makeTransaction(TransferEntity $transferEntity): void
+    public function makeTransfer(TransferEntity $transferEntity): void
     {
         $formatter = $this->formatterFactory->make(FormatterTypeEnum::FORMATTER_TRANSACTION());
         $parser = $this->parserFactory->make(ParserTypeEnum::PARSER_TRANSACTION());
@@ -62,7 +62,7 @@ class Client
 
         $formattedData = $formatter->format($transferEntity);
 
-        $rawResponse = $requester->makeTransaction($formattedData);
+        $rawResponse = $requester->makeTransfer($formattedData);
         $responseReceipt = $parser->parse($rawResponse);
 
         $transferEntity->setReceipt($responseReceipt);

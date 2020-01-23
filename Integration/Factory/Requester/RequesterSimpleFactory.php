@@ -2,8 +2,8 @@
 
 namespace CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Requester;
 
-use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Requester\MakeTransaction;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransferParser;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Requester\MakeTransfer;
 use GuzzleHttp\Client;
 
 /**
@@ -18,14 +18,14 @@ class RequesterSimpleFactory
      * Method responsible for creating a requester class.
      *
      * @param RequesterTypeEnum $requesterTypeEnum
-     * @return MakeTransaction
+     * @return MakeTransfer
      * @throws \Exception
      */
     public function make(RequesterTypeEnum $requesterTypeEnum)
     {
         switch ($requesterTypeEnum->value()) {
             case RequesterTypeEnum::REQUESTER_MAKE_TRANSACTION:
-                return new MakeTransaction(new Client);
+                return new MakeTransfer(new Client);
                 break;
             default:
                 throw new \Exception('Type of requester not implemented.');

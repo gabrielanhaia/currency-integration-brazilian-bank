@@ -14,6 +14,6 @@ use Eloquent\Enumeration\AbstractEnumeration;
  */
 class ParserTypeEnum extends AbstractEnumeration
 {
-    /** @var string PARSER_TRANSACTION Type of parser for transactions response from the API. */
+    /** @var string PARSER_TRANSACTION Type of parser for transfers response from the API. */
     const PARSER_TRANSACTION = 'PARSER_TRANSACTION';
 }

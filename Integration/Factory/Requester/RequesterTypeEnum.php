@@ -14,6 +14,6 @@ use Eloquent\Enumeration\AbstractEnumeration;
  */
 class RequesterTypeEnum extends AbstractEnumeration
 {
-    /** @var string REQUESTER_MAKE_TRANSACTION Requester responsible for making transaction.  */
+    /** @var string REQUESTER_MAKE_TRANSACTION Requester responsible for making transfer.  */
     const REQUESTER_MAKE_TRANSACTION = 'REQUESTER_MAKE_TRANSACTION';
 }
