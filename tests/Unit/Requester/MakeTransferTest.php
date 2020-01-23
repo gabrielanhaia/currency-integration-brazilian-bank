@@ -3,17 +3,17 @@
 
 namespace Tests\Unit\Requester;
 
-use CurrencyFair\IntegrationBrazillianBank\Integration\Requester\MakeTransaction;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Requester\MakeTransfer;
 use GuzzleHttp\Client;
 use Tests\TestCase;
 
 /**
- * Class MakeTransactionTest responsible for the tests on the requester (MakeTransaction).
+ * Class MakeTransferTest responsible for the tests on the requester (MakeTransfer).
  * @package Tests\Unit\Requester
  *
  * @author Gabriel Anhaia <gabriel@gmail.com>
  */
-class MakeTransactionTest extends TestCase
+class MakeTransferTest extends TestCase
 {
     /**
      * Test error when there is no base url (API) defined.
@@ -25,17 +25,17 @@ class MakeTransactionTest extends TestCase
         $this->expectExceptionMessage('Base url api must be on the .ENV (API_BRAZILIAN_BANK_BASE_URL)');
 
         putenv('API_BRAZILIAN_BANK_BASE_URL=');
-        $makeTransactionRequester = new MakeTransaction(new Client);
-        $makeTransactionRequester->makeTransaction(['DATA_TO_BE_SENT']);
+        $makeTransferRequester = new MakeTransfer(new Client);
+        $makeTransferRequester->makeTransfer(['DATA_TO_BE_SENT']);
     }
 
     /**
-     * Test request error or server error trying to make a transaction.
+     * Test request error or server error trying to make a transfer.
      */
-    public function testErrorRequestMakingTransaction()
+    public function testErrorRequestMakingTransfer()
     {
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Error making transaction (Brazilian bank).');
+        $this->expectExceptionMessage('Error making transfer (Brazilian bank).');
 
         $postData = ['POST_DATA' => 'TEST'];
         $configBaseUrl = 'BASE_URL_TEST';
@@ -55,14 +55,14 @@ class MakeTransactionTest extends TestCase
             ->withNoArgs()
             ->andReturn(402);
 
-        $makeTransactionRequester = new MakeTransaction($guzzleHttpClientMock);
-        $makeTransactionRequester->makeTransaction($postData);
+        $makeTransferRequester = new MakeTransfer($guzzleHttpClientMock);
+        $makeTransferRequester->makeTransfer($postData);
     }
 
     /**
-     * Test success making transactions on the Brazilian bank.
+     * Test success making transfers on the Brazilian bank.
      */
-    public function testSuccessMakingTransaction()
+    public function testSuccessMakingTransfer()
     {
         $postData = ['POST_DATA' => 'TEST'];
         $configBaseUrl = 'BASE_URL_TEST';
@@ -94,8 +94,8 @@ class MakeTransactionTest extends TestCase
             ->withNoArgs()
             ->andReturn($expectedResponse);
 
-        $makeTransactionRequester = new MakeTransaction($guzzleHttpClientMock);
-        $response = $makeTransactionRequester->makeTransaction($postData);
+        $makeTransferRequester = new MakeTransfer($guzzleHttpClientMock);
+        $response = $makeTransferRequester->makeTransfer($postData);
 
         $this->assertEquals($expectedResponse, $response);
     }

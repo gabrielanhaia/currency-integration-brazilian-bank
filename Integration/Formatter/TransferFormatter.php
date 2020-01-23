@@ -7,12 +7,12 @@ use CurrencyFair\IntegrationBrazillianBank\Integration\Contract\IFormattter;
 use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\TransferEntity;
 
 /**
- * Class TransactionFormatter
+ * Class TransferFormatter
  * @package CurrencyFair\IntegrationBrazillianBank\Integration\Formatter
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class TransactionFormatter implements IFormattter
+class TransferFormatter implements IFormattter
 {
     /**
      * Parse raw data.

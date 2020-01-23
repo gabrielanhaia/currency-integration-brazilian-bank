@@ -24,7 +24,7 @@ $transferEntity->setAccountOrigin($accountOrigin)
     ->setTotal(1000);
 
 try {
-    $client->makeTransaction($transferEntity);
+    $client->makeTransfer($transferEntity);
 } catch (Exception $e) {
     dd($e->getMessage());
 }

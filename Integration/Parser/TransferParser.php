@@ -8,12 +8,12 @@ use CurrencyFair\IntegrationBrazillianBank\Integration\Contract\IParser;
 use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\ReceiptTransferEntity;
 
 /**
- * Class TransactionParser
+ * Class TransferParser
  * @package CurrencyFair\IntegrationBrazillianBank\Integration\Parser
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class TransactionParser implements IParser
+class TransferParser implements IParser
 {
     /**
      * Parse raw data.

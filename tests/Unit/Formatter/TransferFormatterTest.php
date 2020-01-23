@@ -5,21 +5,21 @@ namespace Tests\Unit\Formatter;
 
 use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\AccountEntity;
 use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\TransferEntity;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Formatter\TransactionFormatter;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Formatter\TransferFormatter;
 use Tests\TestCase;
 
 /**
- * Class TransactionFormatterTest responsible for the tests related to the transaction formatter.
+ * Class TransferFormatterTest responsible for the tests related to the transfer formatter.
  * @package Tests\Unit\Formatter
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class TransactionFormatterTest extends TestCase
+class TransferFormatterTest extends TestCase
 {
     /**
-     * Test success formatting a transaction which will be sent to the API.
+     * Test success formatting a transfer which will be sent to the API.
      */
-    public function testSuccessFormattingATransaction()
+    public function testSuccessFormattingATransfer()
     {
         $accountOrigin = new AccountEntity;
         $accountOrigin->setName('MAIN BANK BRAZIL')
@@ -46,7 +46,7 @@ class TransactionFormatterTest extends TestCase
             'usuario_destino_conta' => $transferEntityToBeFormatted->getAccountDestination()->getAccountNumber(),
         ];
 
-        $transferFormatter = new TransactionFormatter;
+        $transferFormatter = new TransferFormatter;
         $response = $transferFormatter->format($transferEntityToBeFormatted);
 
         $this->assertEquals($expectedResponse, $response);

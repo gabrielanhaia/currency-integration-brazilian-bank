@@ -4,19 +4,19 @@
 namespace Tests\Unit\Parser;
 
 use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\ReceiptTransferEntity;
-use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransactionParser;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransferParser;
 use Tests\TestCase;
 
 /**
- * Class TransactionParserTest with the tests related to the parser of transactions.
+ * Class TransferParserTest with the tests related to the parser of transfers.
  * @package Tests\Unit\Parser
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class TransactionParserTest extends TestCase
+class TransferParserTest extends TestCase
 {
     /**
-     * Test error trying parse the response of transactions and returning an invalid confirmation number.
+     * Test error trying parse the response of transfers and returning an invalid confirmation number.
      *
      * @dataProvider dataProviderTestErrorConfirmationNumberInvalid
      *
@@ -28,7 +28,7 @@ class TransactionParserTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Confirmation number invalid.');
 
-        $parser = new TransactionParser;
+        $parser = new TransferParser;
         $parser->parse($dataToBeParsed);
     }
 
@@ -50,16 +50,16 @@ class TransactionParserTest extends TestCase
     }
 
     /**
-     * Method responsible for testing the success parsing a transaction returned from the API.
+     * Method responsible for testing the success parsing a transfer returned from the API.
      */
-    public function testSuccessParseTransaction()
+    public function testSuccessParseTransfer()
     {
         $dataToBeParsed = '{"numero_confirmacao": 1323221, "data_processamento": "2019-01-02"}';
         $expectedResult = new ReceiptTransferEntity;
         $expectedResult->setConfirmationNumber('CN:1323221')
             ->setDateConfirmation(\DateTime::createFromFormat('Y-m-d', '2019-01-02'));
 
-        $parser = new TransactionParser;
+        $parser = new TransferParser;
         $result = $parser->parse($dataToBeParsed);
 
         $this->assertEquals($expectedResult, $result);
