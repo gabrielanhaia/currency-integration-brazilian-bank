@@ -25,6 +25,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "CurrencyFair\\IntegrationBrazillianBank\\Integration\\": "integration",
             "Tests\\": "tests"
         }
     }
