@@ -20,12 +20,15 @@
     },
     "autoload": {
         "psr-4": {
-            "CurrencyFair\\IntegrationBrazillianBank\\Integration\\": "integration/"
+            "CurrencyFair\\IntegrationBrazillianBank\\Integration\\": "integration"
         }
     },
     "autoload-dev": {
         "classmap": [
             "tests"
-        ]
+        ],
+        "psr-4": {
+            "Tests\\": "tests"
+        }
     }
 }
