@@ -6,6 +6,7 @@ namespace CurrencyFair\IntegrationBrazillianBank\Integration\Parser;
 
 use CurrencyFair\IntegrationBrazillianBank\Integration\Contract\IParser;
 use CurrencyFair\IntegrationBrazillianBank\Integration\Entity\ReceiptTransferEntity;
+use CurrencyFair\IntegrationBrazillianBank\Integration\Exception\InvalidDataFormatterException;
 
 /**
  * Class TransferParser
@@ -28,7 +29,7 @@ class TransferParser implements IParser
 
         // I put these rules for different unit tests (scenarios).
         if (empty($arrayRawData['numero_confirmacao'])) {
-            throw new \Exception('Confirmation number invalid.');
+            throw new InvalidDataFormatterException('Confirmation number invalid.');
         }
 
         $confirmationNumber = 'CN:' . $arrayRawData['numero_confirmacao'];
