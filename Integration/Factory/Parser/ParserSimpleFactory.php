@@ -2,6 +2,7 @@
 
 namespace CurrencyFair\IntegrationBrazillianBank\Integration\Factory\Parser;
 
+use CurrencyFair\IntegrationBrazillianBank\Integration\Contract\IParser;
 use CurrencyFair\IntegrationBrazillianBank\Integration\Parser\TransferParser;
 
 /**
@@ -19,7 +20,7 @@ class ParserSimpleFactory
      * @return TransferParser
      * @throws \Exception
      */
-    public function make(ParserTypeEnum $parserTypeEnum)
+    public function make(ParserTypeEnum $parserTypeEnum): IParser
     {
         switch ($parserTypeEnum->value()) {
             case ParserTypeEnum::PARSER_TRANSACTION:
