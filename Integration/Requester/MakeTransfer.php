@@ -3,7 +3,6 @@
 
 namespace CurrencyFair\IntegrationBrazillianBank\Integration\Requester;
 
-use CurrencyFair\IntegrationBrazillianBank\Integration\TransferEntity;
 use Exception;
 
 /**
